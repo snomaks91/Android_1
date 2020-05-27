@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/sellect_town"
-        android:textSize="25dp"
+        android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -35,7 +35,8 @@
             android:paddingStart="5dp"
             android:paddingEnd="5dp"
             android:background="#FFFFFF"
-            android:text="@string/mosсow" />
+            android:text="@string/mosсow"
+            tools:ignore="ButtonStyle" />
 
         <Button
             android:id="@+id/sp"
@@ -45,7 +46,8 @@
             android:paddingStart="5dp"
             android:paddingEnd="5dp"
             android:background="#FFFFFF"
-            android:text="@string/sp" />
+            android:text="@string/sp"
+            tools:ignore="ButtonStyle" />
 
         <Button
             android:id="@+id/rostov"
@@ -55,7 +57,8 @@
             android:paddingStart="5dp"
             android:paddingEnd="5dp"
             android:background="#FFFFFF"
-            android:text="@string/rostov" />
+            android:text="@string/rostov"
+            tools:ignore="ButtonStyle" />
     </LinearLayout>
 
     <EditText
@@ -67,7 +70,8 @@
         android:hint="@string/find_town"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        tools:ignore="Autofill,TextFields" />
 
     <Button
         android:id="@+id/ok"
