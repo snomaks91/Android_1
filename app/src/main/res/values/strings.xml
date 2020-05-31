@@ -31,4 +31,14 @@
     <string name="wind_speed">Скорость ветра</string>
     <string name="dark_theme">Темная тема</string>
     <string name="switchTheme">Отл/Вкл</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="byTheClock">По часам</string>
+    <string name="_00Hours">00ч</string>
+    <string name="_03Hours">03ч</string>
+    <string name="_06Hours">06ч</string>
+    <string name="_09Hours">09ч</string>
+    <string name="_12Hours">12ч</string>
+    <string name="_15Hours">15ч</string>
+    <string name="_18Hours">18ч</string>
+    <string name="_21Hours">21ч</string>
 </resources>

@@ -28,9 +28,9 @@
 19        android:testOnly="true"
 20        android:theme="@style/AppTheme" >
 20-->C:\Users\snoma\OneDrive\Desktop\Lesson_2\app\src\main\AndroidManifest.xml:12:9-40
-21        <activity android:name="com.example.lesson_2.SellectTownActivity" />
-21-->C:\Users\snoma\OneDrive\Desktop\Lesson_2\app\src\main\AndroidManifest.xml:14:9-57
-21-->C:\Users\snoma\OneDrive\Desktop\Lesson_2\app\src\main\AndroidManifest.xml:14:19-54
+21        <activity android:name="com.example.lesson_2.SelectTownActivity" />
+21-->C:\Users\snoma\OneDrive\Desktop\Lesson_2\app\src\main\AndroidManifest.xml:14:9-56
+21-->C:\Users\snoma\OneDrive\Desktop\Lesson_2\app\src\main\AndroidManifest.xml:14:19-53
 22        <activity android:name="com.example.lesson_2.MainActivity" >
 22-->C:\Users\snoma\OneDrive\Desktop\Lesson_2\app\src\main\AndroidManifest.xml:15:9-21:20
 22-->C:\Users\snoma\OneDrive\Desktop\Lesson_2\app\src\main\AndroidManifest.xml:15:19-47

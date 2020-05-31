@@ -3,39 +3,51 @@ package com.example.lesson_2;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import java.util.Objects;
 
 
 public class MainActivity extends AppCompatActivity implements Constants{
 
     private final String webSite = "https://ru.wikipedia.org/wiki/";
-    private ImageButton back, btnWeb;
-    private TextView town;
+    private ImageButton backBtn, webBtn;
+    private TextView townTextView;
+    private Button forDaysBtn, byTheClockBtn;
+    private ForDaysFragment forDaysFragment = new ForDaysFragment();
+    private ByTheClockFragment byTheClockFragment = new ByTheClockFragment();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         findView();
-        workBtnBackSellectTown();
+        workBtnBackSelectTown();
         goToWiki();
+        forDaysBtn.setOnClickListener(new ListenerOnReplace(forDaysFragment));
+        byTheClockBtn.setOnClickListener(new ListenerOnReplace(byTheClockFragment));
     }
 
     @Override
     protected void onSaveInstanceState(@NonNull Bundle saveInstanceState) {
         super.onSaveInstanceState(saveInstanceState);
-        saveInstanceState.putString(TEXT, town.getText().toString());
+        saveInstanceState.putString(TEXT, townTextView.getText().toString());
     }
 
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle saveInstanceState) {
         super.onRestoreInstanceState(saveInstanceState);
-        town.setText(saveInstanceState.get(TEXT).toString());
+        townTextView.setText(Objects.requireNonNull(saveInstanceState.get(TEXT)).toString());
     }
 
     @Override
@@ -45,35 +57,58 @@ public class MainActivity extends AppCompatActivity implements Constants{
             return;
         }
         if (resultCode == RESULT_OK) {
-            town.setText(data.getStringExtra(TEXT));
+            townTextView.setText(data.getStringExtra(TEXT));
         }
     }
 
     private void findView() {
-        back = findViewById(R.id.btnBack);
-        btnWeb = findViewById(R.id.btnWeb);
-        town = findViewById(R.id.myTown);
+        backBtn = findViewById(R.id.BackBtn);
+        webBtn = findViewById(R.id.webBtn);
+        townTextView = findViewById(R.id.myTownTextView);
+        forDaysBtn = findViewById(R.id.forDaysBtn);
+        byTheClockBtn = findViewById(R.id.byTheClockBtn);
+
     }
 
-    private void workBtnBackSellectTown() {
-        back.setOnClickListener(new View.OnClickListener() {
+    private void workBtnBackSelectTown() {
+        backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, SellectTownActivity.class);
+                Intent intent = new Intent(MainActivity.this, SelectTownActivity.class);
                 startActivityForResult(intent, CODE);
             }
         });
     }
 
     private void goToWiki() {
-        btnWeb.setOnClickListener(new View.OnClickListener() {
+        webBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String url = webSite + town.getText().toString();
+                String url = webSite + townTextView.getText().toString();
                 Uri uri = Uri.parse(url);
                 Intent browser = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(browser);
             }
         });
+    }
+
+    private class ListenerOnReplace implements View.OnClickListener {
+
+        Fragment fragment;
+
+        ListenerOnReplace(Fragment fragment) {
+            this.fragment = fragment;
+        }
+
+        @Override
+        public void onClick(View v) {
+            replaceFragment();
+        }
+
+        private void replaceFragment() {
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.fragmentContainer, fragment);
+            ft.commit();
+        }
     }
 }

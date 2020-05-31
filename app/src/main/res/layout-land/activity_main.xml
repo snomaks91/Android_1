@@ -16,15 +16,25 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+                <FrameLayout
+                    android:id="@+id/fragmentContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.497"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
+
                 <TextView
-                    android:id="@+id/myTown"
+                    android:id="@+id/myTownTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/town"
@@ -37,7 +47,7 @@
                     app:layout_constraintVertical_bias="0.01" />
 
                 <ImageButton
-                    android:id="@+id/menu"
+                    android:id="@+id/menuBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -46,7 +56,7 @@
                     tools:ignore="ContentDescription" />
 
                 <TextView
-                    android:id="@+id/date"
+                    android:id="@+id/dateTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="276dp"
@@ -54,32 +64,32 @@
                     android:text="@string/date"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/myTown" />
+                    app:layout_constraintTop_toBottomOf="@+id/myTownTextView" />
 
                 <ImageButton
-                    android:id="@+id/btnBack"
+                    android:id="@+id/BackBtn"
                     android:layout_width="30dp"
                     android:layout_height="33dp"
                     android:layout_marginEnd="236dp"
-                    app:layout_constraintEnd_toStartOf="@+id/menu"
+                    app:layout_constraintEnd_toStartOf="@+id/menuBtn"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/menu"
+                    app:layout_constraintTop_toTopOf="@+id/menuBtn"
                     app:srcCompat="@drawable/abc_vector_test"
                     tools:ignore="ContentDescription,PrivateResource" />
 
                 <TextView
-                    android:id="@+id/time"
+                    android:id="@+id/timeTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="84dp"
                     android:text="@string/time"
                     android:textSize="18sp"
-                    app:layout_constraintStart_toEndOf="@+id/date"
-                    app:layout_constraintTop_toTopOf="@+id/date" />
+                    app:layout_constraintStart_toEndOf="@+id/dateTextView"
+                    app:layout_constraintTop_toTopOf="@+id/dateTextView" />
 
                 <TextView
-                    android:id="@+id/temperature"
+                    android:id="@+id/temperatureTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="68dp"
@@ -88,252 +98,60 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/myTown" />
+                    app:layout_constraintTop_toBottomOf="@+id/myTownTextView" />
 
                 <TextView
-                    android:id="@+id/celsius"
+                    android:id="@+id/celsiusTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/celsius"
                     android:textSize="15sp"
-                    app:layout_constraintStart_toEndOf="@+id/temperature"
-                    app:layout_constraintTop_toTopOf="@+id/temperature" />
-
-                <TextView
-                    android:id="@+id/forDays"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/for_days"
-                    app:layout_constraintStart_toStartOf="@+id/horizontalScrollForDays"
-                    app:layout_constraintTop_toBottomOf="@+id/temperature" />
-
-                <HorizontalScrollView
-                    android:id="@+id/horizontalScrollForDays"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="52dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/forDays">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:id="@+id/day1"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="35dp"
-                                android:text="@string/day1" />
-
-                            <ImageView
-                                android:id="@+id/imageDay1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                app:srcCompat="@drawable/ic_launcher_foreground"
-                                tools:ignore="ContentDescription" />
-
-                            <TextView
-                                android:id="@+id/tempDay1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="35dp"
-                                android:text="@string/temp_day1"
-                                android:textSize="20sp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:id="@+id/day2"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="35dp"
-                                android:text="@string/day2" />
-
-                            <ImageView
-                                android:id="@+id/imageDay2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                app:srcCompat="@drawable/ic_launcher_foreground"
-                                tools:ignore="ContentDescription" />
-
-                            <TextView
-                                android:id="@+id/tempDay2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="35dp"
-                                android:text="@string/temp_day2"
-                                android:textSize="20sp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:id="@+id/day3"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="35dp"
-                                android:text="@string/day3" />
-
-                            <ImageView
-                                android:id="@+id/imageDay3"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                app:srcCompat="@drawable/ic_launcher_foreground"
-                                tools:ignore="ContentDescription" />
-
-                            <TextView
-                                android:id="@+id/tempDay3"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="35dp"
-                                android:text="@string/temp_day3"
-                                android:textSize="20sp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:id="@+id/day4"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="35dp"
-                                android:text="@string/day4" />
-
-                            <ImageView
-                                android:id="@+id/imageDay4"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                app:srcCompat="@drawable/ic_launcher_foreground"
-                                tools:ignore="ContentDescription" />
-
-                            <TextView
-                                android:id="@+id/tempDay4"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="35dp"
-                                android:text="@string/temp_day4"
-                                android:textSize="20sp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:id="@+id/day5"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="35dp"
-                                android:text="@string/day5" />
-
-                            <ImageView
-                                android:id="@+id/imageDay5"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                app:srcCompat="@drawable/ic_launcher_foreground"
-                                tools:ignore="ContentDescription" />
-
-                            <TextView
-                                android:id="@+id/tempDay5"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="35dp"
-                                android:text="@string/temp_day5"
-                                android:textSize="20sp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:id="@+id/day6"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="35dp"
-                                android:text="@string/day6" />
-
-                            <ImageView
-                                android:id="@+id/imageDay6"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                app:srcCompat="@drawable/ic_launcher_foreground"
-                                tools:ignore="ContentDescription" />
-
-                            <TextView
-                                android:id="@+id/tempDay6"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="35dp"
-                                android:text="@string/temp_day6"
-                                android:textSize="20sp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:id="@+id/day7"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="35dp"
-                                android:text="@string/day7" />
-
-                            <ImageView
-                                android:id="@+id/imageDay7"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                app:srcCompat="@drawable/ic_launcher_foreground"
-                                tools:ignore="ContentDescription" />
-
-                            <TextView
-                                android:id="@+id/tempDay7"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="35dp"
-                                android:text="@string/temp_day7"
-                                android:textSize="20sp" />
-                        </LinearLayout>
-                    </LinearLayout>
-                </HorizontalScrollView>
+                    app:layout_constraintStart_toEndOf="@+id/temperatureTextView"
+                    app:layout_constraintTop_toTopOf="@+id/temperatureTextView" />
 
                 <ImageButton
-                    android:id="@+id/btnWeb"
+                    android:id="@+id/webBtn"
                     android:layout_width="18dp"
                     android:layout_height="23dp"
                     android:layout_marginTop="4dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.036"
-                    app:layout_constraintStart_toEndOf="@+id/myTown"
+                    app:layout_constraintStart_toEndOf="@+id/myTownTextView"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@android:drawable/ic_menu_help"
                     tools:ignore="ContentDescription" />
 
+                <LinearLayout
+                    android:id="@+id/linearLayout4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="28dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/temperatureTextView">
+
+                    <Button
+                        android:id="@+id/forDaysBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/for_days"
+                        tools:ignore="ButtonStyle" />
+
+                    <Button
+                        android:id="@+id/byTheClockBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/byTheClock"
+                        tools:ignore="ButtonStyle" />
+                </LinearLayout>
+
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+
         </LinearLayout>
     </ScrollView>
 

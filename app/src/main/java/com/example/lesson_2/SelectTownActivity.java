@@ -8,45 +8,45 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class SellectTownActivity extends AppCompatActivity implements Constants{
+public class SelectTownActivity extends AppCompatActivity implements Constants{
 
-    private Button msk, spb, rnd, ok;
-    private EditText town;
+    private Button mskBtn, spbBtn, rndBtn, okBtn;
+    private EditText townEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sellect_town);
-        find();
-        listenerBtn(msk);
-        listenerBtn(spb);
-        listenerBtn(rnd);
-        sellectTown();
+        findView();
+        listenerBtn(mskBtn);
+        listenerBtn(spbBtn);
+        listenerBtn(rndBtn);
+        selectTown();
     }
 
-    private void find() {
-        msk = findViewById(R.id.moscow);
-        spb = findViewById(R.id.sp);
-        rnd = findViewById(R.id.rostov);
-        town = findViewById(R.id.findTown);
-        ok = findViewById(R.id.ok);
+    private void findView() {
+        mskBtn = findViewById(R.id.mskBtn);
+        spbBtn = findViewById(R.id.spBtn);
+        rndBtn = findViewById(R.id.rostovBtn);
+        townEditText = findViewById(R.id.findTownEditText);
+        okBtn = findViewById(R.id.okBtn);
     }
 
     private void listenerBtn(final Button btn) {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                town.setText(btn.getText());
+                townEditText.setText(btn.getText());
             }
         });
     }
 
-    private void sellectTown() {
-        ok.setOnClickListener(new View.OnClickListener() {
+    private void selectTown() {
+        okBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intentResult= new Intent();
-                intentResult.putExtra(TEXT, town.getText().toString());
+                intentResult.putExtra(TEXT, townEditText.getText().toString());
                 setResult(RESULT_OK, intentResult);
                 finish();
             }

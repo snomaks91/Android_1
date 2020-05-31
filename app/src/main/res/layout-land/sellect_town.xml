@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/sellTown"
+        android:id="@+id/sellTownTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -25,10 +25,10 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sellTown">
+        app:layout_constraintTop_toBottomOf="@+id/sellTownTextView">
 
         <Button
-            android:id="@+id/moscow"
+            android:id="@+id/mskBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -39,7 +39,7 @@
             tools:ignore="ButtonStyle" />
 
         <Button
-            android:id="@+id/sp"
+            android:id="@+id/spBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -50,7 +50,7 @@
             tools:ignore="ButtonStyle" />
 
         <Button
-            android:id="@+id/rostov"
+            android:id="@+id/rostovBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -62,7 +62,7 @@
     </LinearLayout>
 
     <EditText
-        android:id="@+id/findTown"
+        android:id="@+id/findTownEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -74,13 +74,13 @@
         tools:ignore="Autofill,TextFields" />
 
     <Button
-        android:id="@+id/ok"
+        android:id="@+id/okBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:text="@android:string/ok"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/findTown" />
+        app:layout_constraintTop_toBottomOf="@+id/findTownEditText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
